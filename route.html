@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/bootstrap-theme.css">
+  <meta charset="utf-8">
+  <title>Draggable directions</title>
+  <style>
+  html, body, #map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+<script src="js/router.js"></script>
+</head>
+<body>
+  <div id="map-canvas" style="float:left;width:70%; height:100%"></div>
+  <div id="directionsPanel" style="float:right;width:30%;height 100%">
+    <h1>Total Distance: <span id="total"></span></h1>
+</div>
+</body>
+</html>
