@@ -9,6 +9,7 @@
       },
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Resolved",
+      "importance": "normal",
       "route": "/route.html"
     },
     {
@@ -20,6 +21,7 @@
       },
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Resolved",
+      "importance": "normal",
       "route": "/route.html"
     },
     {
@@ -31,6 +33,19 @@
       },
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Current",
+      "importance": "warning",
+      "route": "/route.html"
+    },
+    {
+      "issueNo": 4,
+      "issueDetails": "Lorem Ipsum Dolor",
+      "location": {
+        "latitude": 27.281221,
+        "longitude": 59.6178112
+      },
+      "issueDate": "2015-03-25T12:50:11.906Z",
+      "status" : "Current",
+      "importance": "danger",
       "route": "/route.html"
     }
   ]
