@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-    	url: "/data/dummyData.json",
+    	url: "data/dummyData.json",
         dataType: "json",
         success: function(Data) {
             // variables for different issue properties
