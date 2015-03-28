@@ -10,7 +10,7 @@
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Resolved",
       "importance": "normal",
-      "route": "DriveNav/route.html"
+      "route": "route.html"
     },
     {
       "issueNo": 2,
@@ -22,7 +22,7 @@
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Resolved",
       "importance": "normal",
-      "route": "DriveNav/route.html"
+      "route": "route.html"
     },
     {
       "issueNo": 3,
@@ -34,7 +34,7 @@
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Current",
       "importance": "warning",
-      "route": "DriveNav/route.html"
+      "route": "route.html"
     },
     {
       "issueNo": 4,
@@ -46,7 +46,7 @@
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Current",
       "importance": "danger",
-      "route": "DriveNav/route.html"
+      "route": "route.html"
     }
   ]
 }
