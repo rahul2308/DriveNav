@@ -6,7 +6,7 @@ $(document).ready(function() {
             // variables for different issue properties
         	var issueNo, issueDetails, issueLocationLatitude, issueLocationLongitude, issueDate, issueImportance, driveRoute;
             // resolved stores all the resolved issued and current stores all the current issues
-        	var resolved = new Array(), current = new Array();
+        	var resolved = new Array(), current_normal = new Array(), current_danger = new Array(), current_warning = new Array();
             // issueList is an array used to store the issues in the json file
         	var issueList = Data.issues;
             // datalength stores the no of issues in the json file
@@ -46,15 +46,17 @@ $(document).ready(function() {
         		}
         		else if(issueList[i].status=="Current") {
                     if (issueImportance === "danger")
-                        current.push("<tr class=\"danger\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
+                        current_danger.push("<tr class=\"danger\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
                     else if (issueImportance === "warning")
-                        current.push("<tr class=\"warning\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
+                        current_warning.push("<tr class=\"warning\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
                     else 
-                        current.push("<tr><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
+                        current_normal.push("<tr><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
         		}
         	}
             //pushing the required data in the required table
-        	$('#current').append(current);
+        	$('#current').append(current_danger);
+            $('#current').append(current_warning);
+            $('#current').append(current_normal);
         	$('#resolved').append(resolved);
         }
     });
