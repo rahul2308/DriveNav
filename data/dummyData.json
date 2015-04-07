@@ -5,8 +5,8 @@
       "issueDetails": "Lorem ",
       "locationtype": "waypoint",
       "location": {
-        "latitude": 17.283021,
-        "longitude": 79.6238112
+        "latitude": 17.9838581,
+        "longitude": 79.60302269999999
       },
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Resolved",
@@ -18,8 +18,8 @@
       "issueDetails": "Lorem Ipsum ",
       "locationtype": "waypoint",
       "location": {
-        "latitude": 17.283021,
-        "longitude": 79.6238112
+        "latitude": 17.9838581,
+        "longitude": 79.61302269999999
       },
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Resolved",
@@ -31,8 +31,8 @@
       "issueDetails": "Lorem Ipsum Dolor",
       "locationtype": "waypoint",
       "location": {
-        "latitude": 17.283021,
-        "longitude": 79.6238112
+        "latitude": 17.9838581,
+        "longitude": 79.62302269999999
       },
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Current",
@@ -44,8 +44,8 @@
       "issueDetails": "Lorem Ipsum Dolor",
       "locationtype": "destination",
       "location": {
-        "latitude": 27.281221,
-        "longitude": 59.6178112
+        "latitude": 17.9838581,
+        "longitude": 79.63302269999999
       },
       "issueDate": "2015-03-25T12:50:11.906Z",
       "status" : "Current",

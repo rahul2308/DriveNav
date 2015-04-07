@@ -24,11 +24,11 @@ function initialize() {
   // calcRoute();
 }
 
-function calcRoute(current_pos) {
+function calcRoute(current_pos, waypoint_pos, destination_pos) {
   var request = {
     origin: current_pos,
-    destination: 'Warangal, Telangana',
-    waypoints:[{location: 'Spencers, Warangal'}, {location: 'Municipal Corportation, Warangal'}],
+    destination: destination_pos,
+    waypoints: waypoint_pos,
     travelMode: google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(response, status) {
@@ -38,11 +38,41 @@ function calcRoute(current_pos) {
   });
 }
 
+function getotherlocation(current_pos)
+{
+  $.ajax({
+      url: "data/dummyData.json",
+        dataType: "json",
+        success: function(IssueData) {
+            var destLatitude, destLongitude;
+            var waypointLatitude , waypointLongitude;
+            var tempwaypoint_pos;
+            var waypoint_pos = new Array();
+            var issueList = IssueData.issues;
+            var datalength = issueList.length;
+            for(var i=0; i<datalength; i++) {
+                if(issueList[i].locationtype == "destination") {
+                    destLongitude = issueList[i].location.longitude;
+                    destLatitude = issueList[i].location.latitude;
+                }
+                else if(issueList[i].locationtype == "waypoint") {
+                    waypointLongitude = issueList[i].location.longitude;
+                    waypointLatitude = issueList[i].location.latitude;
+                    tempwaypoint_pos = new google.maps.LatLng(waypointLatitude, waypointLongitude);
+                    waypoint_pos.push({location: tempwaypoint_pos});
+                }
+            }
+            destination_pos = new google.maps.LatLng(destLatitude, destLongitude);
+            calcRoute(current_pos, waypoint_pos, destination_pos);
+        }
+    });
+}
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
         current_pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        calcRoute(current_pos);
+        getotherlocation(current_pos);
       });
     } else { 
         alert ("Geolocation is not supported by this browser.");
