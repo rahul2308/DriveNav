@@ -3,6 +3,7 @@
     {
       "issueNo": 1,
       "issueDetails": "Lorem ",
+      "locationtype": "waypoint",
       "location": {
         "latitude": 17.283021,
         "longitude": 79.6238112
@@ -15,6 +16,7 @@
     {
       "issueNo": 2,
       "issueDetails": "Lorem Ipsum ",
+      "locationtype": "waypoint",
       "location": {
         "latitude": 17.283021,
         "longitude": 79.6238112
@@ -27,6 +29,7 @@
     {
       "issueNo": 3,
       "issueDetails": "Lorem Ipsum Dolor",
+      "locationtype": "waypoint",
       "location": {
         "latitude": 17.283021,
         "longitude": 79.6238112
@@ -39,6 +42,7 @@
     {
       "issueNo": 4,
       "issueDetails": "Lorem Ipsum Dolor",
+      "locationtype": "destination",
       "location": {
         "latitude": 27.281221,
         "longitude": 59.6178112
