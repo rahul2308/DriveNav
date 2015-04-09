@@ -6,26 +6,26 @@ $(document).ready(function() {
             // variables for different issue properties
         	var issueNo, issueDetails, issueLocationLatitude, issueLocationLongitude, issueDate, issueImportance, driveRoute;
             // resolved stores all the resolved issued and current stores all the current issues
-        	var resolved = new Array(), current_normal = new Array(), current_danger = new Array(), current_warning = new Array();
+        	var resolved = [], current_normal = [], current_danger = [], current_warning = [];
             // issueList is an array used to store the issues in the json file
         	var issueList = Data.issues;
             // datalength stores the no of issues in the json file
         	var datalength = issueList.length;
 
-        	for(i=0; i<datalength; i++) {
+        	for(var i=0; i<datalength; i++) {
         		issueNo = issueList[i].issueNo;
         		issueDetails = issueList[i].issueDetails;
         		issueLocationLatitude = issueList[i].location.latitude;
         		issueLocationLongitude = issueList[i].location.longitude;
         		issueDate = issueList[i].issueDate.split('T');
-                iDate = issueDate[0];
-                iTime = issueDate[1].split('Z')[0];
+                var iDate = issueDate[0];
+                var iTime = issueDate[1].split('Z')[0];
                 issueImportance = issueList[i].importance;
         		driveRoute = "<a href='"+issueList[i].route+"' class=\"btn btn-warning\">Route here</a>";
 
-                day = iDate.split('-')[2];
-                month = iDate.split('-')[1];
-                year = iDate.split('-')[0];
+                var day = iDate.split('-')[2];
+                var month = iDate.split('-')[1];
+                var year = iDate.split('-')[0];
                 switch(month){
                     case '01':  month = 'Jan';break;
                     case '02':  month = 'Feb';break;
@@ -41,17 +41,20 @@ $(document).ready(function() {
                     case '12':  month = 'Dec';break;
                 }
 
-        		if(issueList[i].status == "Resolved") {
+        		if(issueList[i].status === "Resolved") {
         			resolved.push("<tr><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
         		}
-        		else if(issueList[i].status=="Current") {
-                    if (issueImportance === "danger")
-                        current_danger.push("<tr class=\"danger\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
-                    else if (issueImportance === "warning")
-                        current_warning.push("<tr class=\"warning\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
-                    else 
-                        current_normal.push("<tr><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + '-' + month + '-' + year +', '+iTime + "</td><td>" + driveRoute + "</td></tr>");
-        		}
+        		else if(issueList[i].status === "Current") {
+                    if (issueImportance === "danger") {
+                        current_danger.push("<tr class=\"danger\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + "-" + month + "-" + year +", "+iTime + "</td><td>" + driveRoute + "</td></tr>");
+                    }
+                    else if (issueImportance === "warning") {
+                        current_warning.push("<tr class=\"warning\"><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + "-" + month + "-" + year +", "+iTime + "</td><td>" + driveRoute + "</td></tr>");
+                    }
+                    else {
+                        current_normal.push("<tr><td>"+issueNo + "</td><td>" + issueDetails + "</td><td>[" + issueLocationLatitude + "," + issueLocationLongitude + "]</td><td>" + day + "-" + month + "-" + year +", "+iTime + "</td><td>" + driveRoute + "</td></tr>");
+        		    }
+                }
         	}
             //pushing the required data in the required table
         	$('#current').append(current_danger);
@@ -60,4 +63,4 @@ $(document).ready(function() {
         	$('#resolved').append(resolved);
         }
     });
-})
+});
